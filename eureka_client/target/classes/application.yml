@@ -1,0 +1,16 @@
+server: 
+  port: 8763
+spring: 
+  application: 
+    name: serverProvider
+eureka: 
+#  instance: 
+#    hostname: localhost
+#    metadata-map: 
+#      cluster: MAIN 
+  client: 
+    service-url: 
+#      #defaultZone: http://peer1:8761/eureka/
+#      #注册中心集群配置
+      defaultZone: http://192.168.1.7:8761/registry/
+

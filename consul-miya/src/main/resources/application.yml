@@ -1,0 +1,21 @@
+server: 
+  port: 8502
+spring: 
+  application:
+    name: consul-miya
+  cloud:
+    consul:
+      enabled: true
+      host: localhost
+      port: 8500
+      discovery:
+        #health-check-path: ${management.context-path}/health  #Consul实例的运行状况检查默认为“/ health”
+        health-check-interval: 15s
+        instance-id: consul-miya
+#        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        service-name: consul-miya
+        enabled: true
+        tags: dev
+        hostname: localhost
+        port: ${server.port}
+        
