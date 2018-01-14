@@ -1,0 +1,22 @@
+#logback日志配置
+logging: 
+  config: classpath:logback.xml
+
+spring: 
+#  kafka: 
+#    bootstrap-servers:
+#    - 192.168.1.7:2181
+  
+  cloud: 
+    stream:
+      bindings: ##  输入通道配置信息
+        customer1: 
+          destination: test_spring_stream
+          group: group-1
+          consumer:
+            concurrency: 1
+            partitioned: false
+        productor1: ## 输出通道配置信息
+          destination: test_spring_stream
+          producer: 
+            partitionCount: 1
