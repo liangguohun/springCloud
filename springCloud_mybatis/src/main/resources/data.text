@@ -1,0 +1,12 @@
+CREATE TABLE userinfo (
+id INT(11) AUTO_INCREMENT NOT NULL COMMENT '主键',
+username VARCHAR(20) NOT NULL COMMENT '用户名',
+PRIMARY KEY (id)
+)ENGINE=INNODB DEFAULT CHARSET utf8 COMMENT '测试表';
+
+
+INSERT INTO userinfo (username) VALUES('test');
+
+
+//官方教程
+https://github.com/mybatis/spring-boot-starter/wiki/Quick-Start
