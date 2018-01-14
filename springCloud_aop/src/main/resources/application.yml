@@ -1,0 +1,29 @@
+#logback日志配置
+logging: 
+  config: classpath:logback.xml
+ 
+server: 
+  port: 881               #应用端口号
+
+spring:
+  application:
+    name: springCloud_aop     #应用名称
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.74.154.133:3306/testDb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: Hunge//..22@
+    dbcp2:
+      initial-size: 2
+      max-wait-millis: 2500
+      default-query-timeout: 3000
+      max-total: 20
+      validation-query: SELECT 1 FROM DUAL
+  jpa: 
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties: 
+      hibernate: 
+        current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
