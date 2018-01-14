@@ -1,0 +1,16 @@
+server: 
+  port: 8769
+spring: 
+  profiles: peer2
+eureka: 
+  instance: 
+    hostname: peer2
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  server: 
+    enable-self-preservation: false
+  client: 
+    register-with-eureka: false
+    fetch-registry: false
+    service-url: 
+      defaultZone: http://peer1:8761/eureka/
