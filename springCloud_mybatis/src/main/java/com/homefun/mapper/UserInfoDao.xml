@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.homefun.dao.UserInfoDao" >  
+      
+    <insert id="save" parameterType="com.homefun.beans.UserInfo">  
+        insert into userinfo(username) values(#{userName,jdbcType=VARCHAR})  
+    </insert>  
+      
+    <select id="selectById" resultType="com.homefun.beans.UserInfo">  
+        select * from userinfo where id = #{id,jdbcType=NUMERIC}  
+    </select>
+    
+    <update id="updateById" parameterType="com.homefun.beans.UserInfo">  
+        update userinfo set    
+        username = #{userName,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=NUMERIC}  
+    </update>  
+      
+    <delete id="deleteById">
+        delete from userinfo where id = #{id,jdbcType=NUMERIC}  
+    </delete>
+      
+    <select id="queryAll" resultType="com.homefun.beans.UserInfo">  
+        select * from userinfo
+    </select>
+      
+    <insert id="insertBatch"  parameterType="java.util.List">  
+       INSERT INTO userinfo(username)  
+       VALUES 
+      <foreach collection="list" item="item" index="index" separator="," >  
+       (#{item.userName,jdbcType=VARCHAR})  
+      </foreach>  
+	</insert> 
+	
+	<update id="updatePart"  parameterType="com.homefun.beans.UserInfo">
+		 UPDATE userinfo
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="userName!=null">username=#{userName},</if>
+		  <if test="xiaoMing!=null">xiaoMing=#{xiaoMing},</if>
+		 </trim>
+		 WHERE ID = #{id}
+	</update>
+	
+	<update id="upBatch"  parameterType="java.util.List">  
+	   <foreach collection="list" item="item" index="index" open="" close="" separator=";">  
+	        UPDATE userinfo 
+	         <!-- <trim prefix="set" suffixOverrides=",">
+				<if test="item.userName!=null">username=#{item.userName},</if>
+		  		<if test="item.xiaoMing!=null">xiaoMing=#{item.xiaoMing},</if>
+			 </trim> -->
+	        <set>
+	          username = "${item.userName}"
+	        </set>
+	        WHERE ID = ${item.id}
+	    </foreach>
+  	</update>
+</mapper>  

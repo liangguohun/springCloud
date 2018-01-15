@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	@Override
 	public void save(UserInfo userInfo) {
-		// TODO Auto-generated method stub
 		
 	}
 	

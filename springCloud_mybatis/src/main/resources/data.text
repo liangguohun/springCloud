@@ -7,6 +7,6 @@ PRIMARY KEY (id)
 
 INSERT INTO userinfo (username) VALUES('test');
 
-
-//官方教程
+ALTER TABLE userinfo ADD xiaoMing VARCHAR(64) COMMENT '花名' AFTER username;
+//官方教程 區
 https://github.com/mybatis/spring-boot-starter/wiki/Quick-Start
