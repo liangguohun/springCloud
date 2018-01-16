@@ -73,11 +73,11 @@ public class SpringCloudMybatisApplicationTests {
 		List<UserInfo> users = new ArrayList<UserInfo>();
 		for(int i=1;i<10;i++) {
 			UserInfo user = new UserInfo();
-			user.setUserName("哥哥"+i);
+			user.setUserName("cbm"+i);
 			user.setId(i);
 			users.add(user);
 		}
-		userInfoDao.upBatch(users);
+		userInfoDao.batchUpdate(users);
 	}
 
 }

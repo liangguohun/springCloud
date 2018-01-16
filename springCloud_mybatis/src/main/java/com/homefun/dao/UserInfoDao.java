@@ -21,5 +21,5 @@ public interface UserInfoDao {
     int deleteById(Integer id);
     List<UserInfo> queryAll();
     void insertBatch(List<UserInfo> users);
-    void upBatch(List<UserInfo> users);
+    void batchUpdate(List<UserInfo> users);
 }

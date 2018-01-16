@@ -6,7 +6,7 @@ spring:
     name: springCloud_mybatis     #应用名称
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.74.154.133:3306/testDb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://47.74.154.133:3306/testDb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true
     username: root
     password: Hunge//..22@
     name: mydb  

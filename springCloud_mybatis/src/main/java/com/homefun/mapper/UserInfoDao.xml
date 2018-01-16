@@ -40,18 +40,32 @@
 		 </trim>
 		 WHERE ID = #{id}
 	</update>
-	
-	<update id="upBatch"  parameterType="java.util.List">  
-	   <foreach collection="list" item="item" index="index" open="" close="" separator=";">  
-	        UPDATE userinfo 
-	         <!-- <trim prefix="set" suffixOverrides=",">
-				<if test="item.userName!=null">username=#{item.userName},</if>
-		  		<if test="item.xiaoMing!=null">xiaoMing=#{item.xiaoMing},</if>
+			 <!-- <trim prefix="set" suffixOverrides=",">
+			  <if test="record.userName!=null">username=#{record.userName},</if>
+			  <if test="record.xiaoMing!=null">xiaoMing=#{record.xiaoMing},</if>
 			 </trim> -->
-	        <set>
-	          username = "${item.userName}"
-	        </set>
-	        WHERE ID = ${item.id}
-	    </foreach>
-  	</update>
+	<!-- 这坑逼, 不加foreach外部的trim会报语法错误 -->
+<!--     <update id="batchUpdate"  parameterType="java.util.List">  
+	    <trim prefixOverrides=";">
+			<foreach collection="list" item="item" index="index" open="" close="" separator=";">  
+	        	update userinfo 
+	        	<set>
+	        		username=#{item.userName}
+				</set>
+	        	where ID = #{item.id}
+	         </foreach>  
+	    </trim>
+    </update> -->
+    <update id="batchUpdate"  parameterType="java.util.List">  
+	    <trim prefixOverrides=";">
+			<foreach collection="list" item="record" index="index" open="" close="" separator=";">  
+	        	update userinfo 
+	        	<trim prefix="set" suffixOverrides=",">
+				  <if test="record.userName!=null">username=#{record.userName},</if>
+				  <if test="record.xiaoMing!=null">xiaoMing=#{record.xiaoMing},</if>
+				</trim>
+	        	where ID = #{record.id}
+	         </foreach>  
+	    </trim>
+    </update>
 </mapper>  
