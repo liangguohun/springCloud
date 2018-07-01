@@ -1,0 +1,4 @@
+#server.port=888 # 会覆盖TomcatServletWebServerFactory 设置的端口
+server:
+  tomcat:
+    max-threads: 10000
