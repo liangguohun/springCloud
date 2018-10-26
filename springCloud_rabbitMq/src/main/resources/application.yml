@@ -2,7 +2,9 @@ spring:
   application:
     name: springCloud_rabbitMq
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: spring
-    password: 123456
+#    host: 192.168.1.4
+#    port: 5672
+    addresses: amqp://192.168.1.4:5672,amqp://192.168.1.4:5673
+    virtual-host: vhtest
+    username: user1
+    password: user1
