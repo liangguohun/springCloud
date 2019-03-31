@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix="spring.redis")
 public class RedisConn {
 	private String host;
+	private String password;
 	private int port;
 	private int timeout;
 	
@@ -33,5 +34,11 @@ public class RedisConn {
 	}
 	public void setTimeout(int timeout) {
 		this.timeout = timeout;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

@@ -19,8 +19,8 @@ public class SpringCloudRedisApplicationTests {
 	@Test
 	public void contextLoads() {
 		System.out.println("simpleProp: " + redisConn.getHost());
-//		redisUtil.set("test", "goods2");
-		System.out.println(redisUtil.get("test"));
+		redisUtil.set("test", "goods2");
+//		System.out.println(redisUtil.get("test"));
 	}
 
 }
